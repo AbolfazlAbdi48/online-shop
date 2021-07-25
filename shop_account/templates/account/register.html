@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>فروت لند</title>
+    <link rel="stylesheet" href="{% static 'css/login_style/style.css' %}">
+</head>
+<body>
+<div class="log-form">
+    <h2>Login to your account</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ register_form.user_name }}
+        <p style="color: red">{{ register_form.user_name.errors }}</p>
+        {{ register_form.email }}
+        <p style="color: red">{{ register_form.email.errors }}</p>
+        {{ register_form.password }}
+        <p style="color: red">{{ register_form.password.errors }}</p>
+        {{ register_form.re_password }}
+        <p style="color: red">{{ register_form.re_password.errors }}</p>
+        <button type="submit" class="btn">Login</button>
+        <a class="forgot" href="#">Forgot Username?</a>
+    </form>
+</div><!--end log form -->
+</body>
+</html>

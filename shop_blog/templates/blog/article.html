@@ -1,0 +1,162 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="ftco-section ftco-degree-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ftco-animate">
+                    <h2 class="mb-3">{{ article.title }}</h2>
+                    <p>
+                        <img src="{{ article.image.url }}" alt="تصویر" class="img-fluid">
+                    </p>
+                    <p class="img-fluid">
+                        {{ article.description|safe }}
+                    </p>
+                    {% comment %}<div class="about-author d-flex p-4 bg-light">
+                        <div class="bio align-self-md-center ml-4">
+                            <img src="pics/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+                        </div>
+                        <div class="desc align-self-md-center">
+                            <h3>محمد منفرد</h3>
+                            <p>اولین خوراکی ارائه شده به ما (amuse bouche) بود که بسیار اشتها آور و خوش منظره بود؛ این
+                                غذا
+                                از صدف و گوشت ماهی به شکل خمیر خامه ای تهیه شده و در یک فنجان ظریف سرو می شد.</p>
+                        </div>
+                    </div>{% endcomment %}
+                    {% comment %}<div class="pt-5 mt-5">
+                        <h3 class="mb-5">نظر سنجی</h3>
+                        <ul class="comment-list">
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="pics/person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>علی ابراهیمی</h3>
+                                    <div class="meta">پنج شنبه - ۲۴ بهمن ۱۳۹۸ ساعت 09:45</div>
+                                    <p>محصول ارگانیک را نمی‌توان در همه‌ی فصول داشت چرا که به صورت مصنوعی رشد نمی‌کنند
+                                    </p>
+                                    <p><a href="#" class="reply">پاسخ</a></p>
+                                </div>
+                            </li>
+
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="pics/person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>علی ابراهیمی</h3>
+                                    <div class="meta">پنج شنبه - ۲۴ بهمن ۱۳۹۸ ساعت 09:45</div>
+                                    <p> در پرورش محصولات ارگانیک از آفت‌کش‌ها و آنتی‌بیوتیک‌ها استفاده نمی‌شود
+
+                                    </p>
+                                    <p><a href="#" class="reply">پاسخ</a></p>
+                                </div>
+
+                                <ul class="children">
+                                    <li class="comment">
+                                        <div class="vcard bio">
+                                            <img src="pics/person_1.jpg" alt="Image placeholder">
+                                        </div>
+                                        <div class="comment-body">
+                                            <h3>علی ابراهیمی</h3>
+                                            <div class="meta">پنج شنبه - ۲۴ بهمن ۱۳۹۸ ساعت 09:45</div>
+                                            <p>استفاده از هورمون‌ها و مواد شیمیایی در پرورش میوه باعث می‌شود میوه‌ها
+                                                درشت‌تر و آبدارتر شوند
+
+                                            </p>
+                                            <p><a href="#" class="reply">پاسخ</a></p>
+                                        </div>
+
+
+                                        <ul class="children">
+                                            <li class="comment">
+                                                <div class="vcard bio">
+                                                    <img src="pics/person_1.jpg" alt="Image placeholder">
+                                                </div>
+                                                <div class="comment-body">
+                                                    <h3>علی ابراهیمی</h3>
+                                                    <div class="meta">پنج شنبه - ۲۴ بهمن ۱۳۹۸ ساعت 09:45</div>
+                                                    <p>
+                                                        محصولات تولیدی توسط کشاورزی ارگانیک خوش‌رنگ‌تر و دارای طعم بهتری
+                                                        هستند
+
+                                                    </p>
+                                                    <p><a href="#" class="reply">پاسخ</a></p>
+                                                </div>
+
+                                                <ul class="children">
+                                                    <li class="comment">
+                                                        <div class="vcard bio">
+                                                            <img src="pics/person_1.jpg" alt="Image placeholder">
+                                                        </div>
+                                                        <div class="comment-body">
+                                                            <h3>علی ابراهیمی</h3>
+                                                            <div class="meta">پنج شنبه - ۲۴ بهمن ۱۳۹۸ ساعت 09:45</div>
+                                                            <p>محصول ارگانیک را نمی‌توان در همه‌ی فصول داشت چرا که به
+                                                                صورت
+                                                                مصنوعی رشد نمی‌کنند
+                                                            </p>
+                                                            <p><a href="#" class="reply">پاسخ</a></p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="pics/person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>علی ابراهیمی</h3>
+                                    <div class="meta">پنج شنبه - ۲۴ بهمن ۱۳۹۸ ساعت 09:45</div>
+                                    <p>تنها محصولاتی کاملا ارگانیک هستند که برچسب «۱۰۰ درصد ارگانیک» را داشته باشند
+                                    </p>
+                                    <p><a href="#" class="reply">پاسخ</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- END comment-list -->
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">تجربه خود را با ما در میان بگذارید</h3>
+                            <form action="#" class="p-5 bg-light">
+                                <div class="form-group">
+                                    <label for="name">نام و نام خانوادگی *</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">ایمیل *</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">وب سایت</label>
+                                    <input type="url" class="form-control" id="website">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">پیام</label>
+                                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="ارسال نظر" class="btn py-3 px-4 btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>{% endcomment %}
+                </div> <!-- .col-md-8 -->
+
+                <!-- Sidebar-->
+                <div class="col-lg-4 sidebar ftco-animate">
+                    {% include 'blog/blog_sidebar_component.html' %}
+                </div>
+
+            </div>
+        </div>
+    </section> <!-- End section -->
+{% endblock %}

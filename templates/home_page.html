@@ -1,0 +1,250 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <!--Tozihat-->
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row no-gutters ftco-services">
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-shipped"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">ارسال رایگان</h3>
+                            <span>برای سفارش های بالای 100 هزارتومان</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-diet"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">تازگی محصولات</h3>
+                            <span>بسته بندی مناسب</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-award"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">کیفیت برتر</h3>
+                            <span>محصولات با کیفیت</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-customer-service"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">پشتیبانی</h3>
+                            <span>پشتیبانی 24 ساعته</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Tozihat-->
+
+    <section class="ftco-section ftco-category ftco-no-pt">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6 order-md-last align-items-stretch d-flex">
+                            <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
+                                 style="background-image: url({% static 'pics/category.jpg' %});">
+                                <div class="text text-center">
+                                    <h2>سبزیجات</h2>
+                                    <p>حفاظت از سلامت هر خانه</p>
+                                    <p><a href="#" class="btn btn-primary">خرید آنی</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                                 style="background-image: url({% static 'pics/category-1.jpg' %});">
+                                <div class="text px-3 py-1">
+                                    <h2 class="mb-0"><a href="#">سرزمین میوه</a></h2>
+                                </div>
+                            </div>
+                            <div class="category-wrap ftco-animate img d-flex align-items-end"
+                                 style="background-image: url({% static 'pics/category-2.jpg' %});">
+                                <div class="text px-3 py-1">
+                                    <h2 class="mb-0"><a href="#">توت فرنگی</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                         style="background-image: url({% static 'pics/category-3.jpg' %});">
+                        <div class="text px-3 py-1">
+                            <h2 class="mb-0"><a href="#">آب میوه های طبیعی</a></h2>
+                        </div>
+                    </div>
+                    <div class="category-wrap ftco-animate img d-flex align-items-end"
+                         style="background-image: url({% static 'pics/category-4.jpg' %});">
+                        <div class="text px-3 py-1">
+                            <h2 class="mb-0"><a href="#">میوه خشک</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading"> انتخاب هوشمند محصولات ارگانیک</span>
+                    <h2 class="mb-4">سرزمین میوه</h2>
+                    <p>پیشنهاد ما به شما</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                {% for product in last_products %}
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="product">
+                            <a href="#" class="img-prod"><img class="img-fluid" src="{{ product.image.url }}"
+                                                              alt="{{ product.title }}">
+                                {% comment %}<span class="status">30%</span>{% endcomment %}
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <h3><a href="/products/{{ product.get_absolut_url }}">{{ product.title }}</a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price">
+                                           {% comment %} <span class="mr-2 price-dc"> 120.00</span>
+                                            <span class="price-dc"> تومان</span>{% endcomment %}
+                                            <span class="price-sale"> {{ product.price }}</span>
+                                            <span class="price-sale"> تومان</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!--nazar Sanji-->
+    <section class="ftco-section testimony-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <span class="subheading">تجربه خرید</span>
+                    <h2 class="mb-4">رضایت مشتری</h2>
+                    <p>تجربه خرید خود را با دیگران در میان بگذارید</p>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel">
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                     style="background-image: url({% static 'pics/person_1.jpg' %})">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">بسار تمیز و منصافانه</p>
+                                    <p class="name">محمد معدلی</p>
+                                    <span class="position">بسه بندی مناسب</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                     style="background-image: url({% static 'pics/person_2.jpg' %})">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">کیفیت منحصر </p>
+                                    <p class="name">رضا دل آرام</p>
+                                    <span class="position">طراحی کلی</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                     style="background-image: url({% static 'pics/person_3.jpg' %})">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">سلامتی حق شماست</p>
+                                    <p class="name">آرین میرزایی</p>
+                                    <span class="position">طراح</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                     style="background-image: url({% static 'pics/person_1.jpg' %})">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">کیفیت اتفاقی نیست</p>
+                                    <p class="name">محمد نجات پور</p>
+                                    <span class="position">توسعه دهنده وب</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                     style="background-image: url({% static 'pics/person_1.jpg' %})">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">تغییر مسیر زندگی</p>
+                                    <p class="name">علی رضایی</p>
+                                    <span class="position">آنالیز سیستم</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Nazarsanji-->
+
+{% endblock %}

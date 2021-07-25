@@ -1,0 +1,46 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4 my-2">
+                {% include 'account/account_menu.html' %}
+            </div>
+            <div class="col-md-8 my-2">
+                <form method="post" class="border rounded p-3">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 my-2">
+                            <h5>اضافه کردن آدرس</h5>
+                        </div>
+                        <div class="col-6 my-2">
+                            {{ address_form.name }}
+                        </div>
+                        <div class="col-6 my-2">
+                            {{ address_form.family }}
+                        </div>
+                        <div class="col-6 my-2">
+                            {{ address_form.city }}
+                        </div>
+                        <div class="col-6 my-2">
+                            {{ address_form.post_code }}
+                        </div>
+                        <div class="col-6 my-2">
+                            {{ address_form.phone_number }}
+                        </div>
+                        <div class="col-12 my-2">
+                            {{ address_form.full_address }}
+                        </div>
+                        <div class="col-12 my-2">
+                            <button class="btn btn-dark">اضافه کردن</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

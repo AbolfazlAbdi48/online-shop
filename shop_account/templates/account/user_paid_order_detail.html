@@ -1,0 +1,71 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4 my-2">
+                {% include 'account/account_menu.html' %}
+            </div>
+            <div class="col-md-8 my-2 border rounded p-2">
+                <div class="col-12 my-2">
+                    <h5 class="alert alert-success">سفارشات شما</h5>
+                </div>
+                {% if order_detail|length > 0 %}
+                    <div class="cart-list">
+                        <table class="table">
+                            <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>نام محصول</th>
+                                <th>قیمت</th>
+                                <th>تعداد</th>
+                                <th>جمع کل</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for detail in order_detail %}
+                                <tr class="text-center">
+                                    <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a>
+                                    </td>
+
+                                    <td class="image-prod">
+                                        <div class="img"
+                                             style="background-image:url({{ detail.product.image.url }});"></div>
+                                    </td>
+
+                                    <td class="product-name">
+                                        <h3>{{ detail.product.title }}</h3>
+                                    </td>
+
+                                    <td class="price">{{ detail.price }} تومان</td>
+
+                                    <td class="quantity">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group mb-3">
+                                                <input type="text" name="quantity"
+                                                       class="quantity form-control input-number"
+                                                       value="{{ detail.count }}" disabled>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="total">{{ detail.get_detail_price }} تومان</td>
+                                </tr><!-- END TR-->
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-primary">سبد خرید شما خالی میباشد</div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

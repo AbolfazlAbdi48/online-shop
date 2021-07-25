@@ -1,0 +1,48 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% render_partial 'vogafods_shop.views.meta_tags' %}
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'shared/_HeaderRefrence.html' %}
+    {% block new_css_code %}{% endblock %}
+</head>
+
+<body class="goto-here">
+
+{% render_partial 'vogafods_shop.views.header' %}
+<h1 class="mb-2">{% block slider_title %}{% endblock %}</h1>
+<h2 class="subheading mb-4">{% block slider_text %}{% endblock %}</h2>
+<p><a href="/products" class="btn btn-primary">خرید از فروشگاه</a></p>
+</div>
+
+</div>
+</div>
+</div>
+
+{% render_partial 'vogafods_shop.views.slider' %}
+
+{% block content %}
+
+{% endblock %}
+
+{% render_partial 'vogafods_shop.views.footer' %}
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+{% include 'shared/_FooterRefrence.html' %}
+{% block new_js_code %}{% endblock %}
+
+</body>
+</html>

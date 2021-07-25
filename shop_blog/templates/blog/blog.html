@@ -1,0 +1,71 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="ftco-section ftco-degree-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ftco-animate">
+                    <div class="row">
+
+                        {% for article in articles %}
+                            <div class="col-md-12 d-flex ftco-animate">
+                                <div class="blog-entry align-self-stretch d-md-flex">
+                                    <a href="{{ article.get_absolut_url }}" class="block-20"
+                                       style="background-image: url({{ article.image.url }});">
+                                    </a>
+                                    <div class="text d-block pr-md-4">
+                                        {% comment %}<div class="meta mb-3">
+                                            <div><a href="#">۲۴ بهمن ۱۳۹۸</a></div>
+                                            <div><a href="#">کاربر</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                                            </div>
+                                        </div>{% endcomment %}
+                                        <h3 class="heading"><a
+                                                href="{{ article.get_absolut_url }}">{{ article.title }}</a></h3>
+                                        <p>
+                                            {{ article.description|safe|truncatewords:50 }}
+                                        </p>
+                                        <p><a href="{{ article.get_absolut_url }}" class="btn btn-primary py-2 px-3">بیشتر
+                                            بخوانید</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div> <!-- .col-md-8 -->
+                <!-- Sidebar-->
+                <div class="col-lg-4 sidebar ftco-animate">
+                    <div class="sidebar-box">
+                        <form action="/blog/search" class="search-form">
+                            <div class="form-group">
+                                <span class="icon ion-ios-search"></span>
+                                <input type="text" name="aq" class="form-control" placeholder="جست و جو در مقالات...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="heading">لیست محصولات موجود</h3>
+                        <div class="tagcloud">
+                            <a href="#" class="tag-cloud-link">میوه</a>
+                            <a href="#" class="tag-cloud-link">گوجه</a>
+                            <a href="#" class="tag-cloud-link">مانجو</a>
+                            <a href="#" class="tag-cloud-link">سیب</a>
+                            <a href="#" class="tag-cloud-link">هویج</a>
+                            <a href="#" class="tag-cloud-link">پرتغال</a>
+                            <a href="#" class="tag-cloud-link">فلفل</a>
+                            <a href="#" class="tag-cloud-link">بادمجون</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End section -->
+{% endblock %}

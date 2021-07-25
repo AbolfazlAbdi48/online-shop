@@ -1,0 +1,35 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4 my-2">
+                {% include 'account/account_menu.html' %}
+            </div>
+            <div class="col-md-8 my-2">
+                <div class="card">
+                    <img class="circle border-warning w-25 h-25 mt-2" src="
+                    {% if profile.profile_image %}
+                        {{ profile.profile_image.url }}
+                        {% else %}
+                        {% static 'pics/profile_none.png' %}
+                    {% endif %}
+                    "
+                         alt="user profile">
+                    <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                        <h5 class="card-title">مشخصات</h5>
+                        <p class="card-text">نام کاربری : {{ user.username }}</p>
+                        <p class="card-text">نام : {{ user.first_name }}</p>
+                        <p class="card-text">نام خانوادگی : {{ user.last_name }}</p>
+                        <p class="card-text">ایمیل : {{ user.email }}</p>
+                        <a href="/account/edit" class="btn btn-primary">ویرایش پروفایل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

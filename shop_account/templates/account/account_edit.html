@@ -1,0 +1,33 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4 my-2">
+                {% include 'account/account_menu.html' %}
+            </div>
+            <div class="col-md-8 my-2">
+                <form class="border p-3 rounded" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ edit_form.first_name.id_for_label }}">{{ edit_form.first_name.label }}</label>
+                        {{ edit_form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ edit_form.last_name.id_for_label }}">{{ edit_form.last_name.label }}</label>
+                        {{ edit_form.last_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ edit_form.profile_image.id_for_label }}">{{ edit_form.profile_image.label }}</label>
+                        {{ edit_form.profile_image }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">ویرایش</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

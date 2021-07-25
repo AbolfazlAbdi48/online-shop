@@ -1,0 +1,20 @@
+{% load static %}
+{% for slide in slider %}
+    <div class="slider-item" style="background-image: url({{ slide.background_image.url }});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                <div class="col-sm-12 ftco-animate text-center">
+                    <h1 class="mb-2">{{ slide.title }}</h1>
+                    <h1 class="subheading mb-4">{{ slide.text }}</h1>
+                    <p><a href="{{ slide.link }}" class="btn btn-primary">بیشتر</a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+</section>
+<!--End Slider-->

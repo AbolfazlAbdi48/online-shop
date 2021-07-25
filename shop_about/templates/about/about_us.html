@@ -1,0 +1,84 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                     style="background-image: url({{ about.image.url }});">
+                    <a href="{{ about.video.url }}"
+                       class=" icon popup-vimeo d-flex justify-content-center align-items-center">
+                    <span class="icon-play"></span>
+                    </a>
+                </div>
+                <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                    <div class="heading-section-bold mb-4 mt-md-5">
+                        <div class="ml-md-0">
+                            <h2 class="mb-4">{{ about.title }}</h2>
+                        </div>
+                    </div>
+                    <div class="pb-md-5">
+                        <p>{{ about.description }}</p>
+                        <p><a href="/products" class="btn btn-primary">خرید آنی</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row no-gutters ftco-services">
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-shipped"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">ارسال رایگان</h3>
+                            <span>برای سفارش های بالای 100 هزارتومان</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-diet"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">تازگی محصولات</h3>
+                            <span>بسته بندی مناسب</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-award"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">کیفیت برتر</h3>
+                            <span>محصولات با کیفیت</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-customer-service"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">پشتیبانی</h3>
+                            <span>پشتیبانی 24 ساعته</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

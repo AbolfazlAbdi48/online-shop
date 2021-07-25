@@ -1,0 +1,46 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4 my-2">
+                {% include 'account/account_menu.html' %}
+            </div>
+            <div class="col-md-8 my-2 border rounded p-2">
+                <div class="row">
+                    <div class="col-6 my-2">
+                        <h5>آدرس ها</h5>
+                    </div>
+                    <div class="col-6 my-2">
+                        <a href="/account/address/add" class="btn btn-dark btn-sm">اضافه کردن آدرس</a>
+                    </div>
+
+
+                    {% for address_item in address %}
+                        <div class="col-12 my-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text">نام : {{ address_item.name }}</p>
+                                    <p class="card-text">نام خانوادگی : {{ address_item.family }}</p>
+                                    <p class="card-text">کد پستی : {{ address_item.post_code }}</p>
+                                    <p class="card-text">آدرس : {{ address_item.full_address }}</p>
+                                    <p class="card-text">شماره تلفن : {{ address_item.phone_number }}</p>
+                                    <a href="/account/address/edit/{{ address_item.id }}" class="btn btn-primary">ویرایش
+                                        آدرس</a>
+                                    <a href="/account/address/delete/{{ address_item.id }}" class="btn btn-primary">حذف
+                                        آدرس</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="container my-5">
+        <section class="row">
+            <div class="col-md-12">
+                <h5 class="alert border">  سفارشات {{ about_orders }} <span class="badge bg-info rounded-pill">{{ orders.count }}</span></h5>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-md-4 my-2">
+                {% include 'dashboard/dashboard_menu_component.html' %}
+            </div>
+            <div class="col-md-8 my-2">
+                {% for order in orders %}
+                    <div class="col-12 my-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">شناسه
+                                    : {{ order.id }}</p>
+                                <p class="card-text">وضعیت پرداخت
+                                    : {{ order.is_paid|yesno:'پرداخت شده,پرداخت نشده' }}</p>
+                                <p class="card-text">تاریخ پرداخت
+                                    : {{ order.payment_date }}</p>
+                                <p class="card-text">آدرس
+                                    : {{ order.address.city }}</p>
+                                <p class="card-text">وضعیت :
+                                    {{ order.is_send|yesno:'تحویل شده,درحال پردازش' }}</p>
+                                <a href="/dashboard/orders/{{ order.id }}" class="btn btn-primary">مشاهده</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

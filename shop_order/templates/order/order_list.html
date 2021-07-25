@@ -1,0 +1,107 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block slider_title %}{{ slider_title }}{% endblock %}
+{% block slider_text %}{{ slider_text }}{% endblock %}
+
+{% block content %}
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    {% if order_detail|length > 0 %}
+                        <div class="cart-list">
+                            <table class="table">
+                                <thead class="thead-primary">
+                                <tr class="text-center">
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>نام محصول</th>
+                                    <th>قیمت</th>
+                                    <th>تعداد</th>
+                                    <th>جمع کل</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for detail in order_detail %}
+                                    <tr class="text-center">
+                                        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a>
+                                        </td>
+
+                                        <td class="image-prod">
+                                            <div class="img"
+                                                 style="background-image:url({{ detail.product.image.url }});"></div>
+                                        </td>
+
+                                        <td class="product-name">
+                                            <h3>{{ detail.product.title }}</h3>
+                                        </td>
+
+                                        <td class="price">{{ detail.price }} تومان</td>
+
+                                        <td class="quantity">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" name="quantity"
+                                                           class="quantity form-control input-number"
+                                                           value="{{ detail.count }}" disabled>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="total">{{ detail.get_detail_price }} تومان</td>
+                                    </tr><!-- END TR-->
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-primary">سبد خرید شما خالی میباشد</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-lg-12 mt-5 cart-wrap ftco-animate">
+                    <div class="cart-total mb-3">
+                        <h3>هزینه ی حمل و نقل و مالیات</h3>
+                        <h3>صورت حساب</h3>
+                        <p class="d-flex">
+                            <span>جمع کل</span>
+                            <span>{{ sum }} تومان</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>هزینه ی ارسال</span>
+                            <span>0.00 تومان</span>
+                        </p>
+                        <hr>
+                        <p class="d-flex total-price">
+                            <span>جمع کل</span>
+                            <span>{{ sum }} تومان</span>
+                        </p>
+                        {% if addresses|length > 0 %}
+                            <form method="post" class="info my-4">
+                                {% csrf_token %}
+                                <lable>لطفا یک آدرس انتخاب کنید :</lable>
+                                <select name="address" class="form-control">
+
+                                    {% for address in addresses %}
+                                        <option value="{{ address.id }}">{{ address.city }}</option>
+                                    {% endfor %}
+
+                                </select>
+                                <div class="alert alert-success my-2">اضافه کردن <a href="/account/address/add"> آدرس</a></div>
+                                <button type="submit" class="btn rounded-0 p-2 mt-2">نهایی کردن خرید</button>
+                            </form>
+                        {% else %}
+                            <div class="alert alert-primary">لطفا یک <a href="/account/address/add"> آدرس </a>اضافه کنید
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}
