@@ -4,6 +4,7 @@
 
 ### my files ###
 static_cdn/media_root
+.idea
 
 ### Django ###
 *.log
