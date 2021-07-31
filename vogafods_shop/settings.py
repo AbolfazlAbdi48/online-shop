@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'shop_order',
     'shop_blog',
     'shop_dashboard',
+    'extension',
 ]
 
 CKEDITOR_UPLOAD_PATH = "article-description/"

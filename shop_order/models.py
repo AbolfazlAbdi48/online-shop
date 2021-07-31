@@ -1,7 +1,10 @@
 from django.contrib.auth.models import User
 from django.db import models
+
+from extension.utils import jalali_converter
 from shop_address.models import Address
 from shop_product.models import Product
+
 
 # Create your models here.
 
@@ -20,6 +23,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f'{self.owner.username}-{self.id}'
+
+    def payment_jalali_date(self):
+        return jalali_converter(self.payment_date)
 
 
 class OrderDetail(models.Model):
