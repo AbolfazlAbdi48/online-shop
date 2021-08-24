@@ -49,7 +49,7 @@ class Product(models.Model):
     visit_count = models.IntegerField(default=0, verbose_name='تعداد بازدید')
     sale_count = models.IntegerField(default=0, verbose_name='تعداد فروش')
     product_count = models.IntegerField(verbose_name='تعداد موجودی')
-    categories = models.ManyToManyField(Category, null=True, blank=True, verbose_name='دسته بندی ها')
+    categories = models.ManyToManyField(Category, blank=True, verbose_name='دسته بندی ها')
     active = models.BooleanField(verbose_name='فعال / غیرفعال')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاد')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='آپدیت')
