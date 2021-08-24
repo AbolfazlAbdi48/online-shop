@@ -48,20 +48,23 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a href="/blog" class="nav-link">بلاگ ووگا فودز</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown04" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">سایت</a>
+                    <div class="dropdown-menu" id="top-dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="/blog">بلاگ</a>
+                        <a class="dropdown-item" href="/contact-us">تماس با ما</a>
+                        <a class="dropdown-item" href="/about-us">ارتباط با ما</a>
+                    </div>
                 </li>
 
-                <li class="nav-item">
-                    <a href="/contact-us" class="nav-link">تماس با ما</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/about-us" class="nav-link">درباره با ما</a>
-                </li>
+                {% if request.user.is_superuser %}
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link">داشبورد</a>
+                    </li>
+                {% endif %}
 
                 {% if request.user.is_authenticated %}
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="dropdown04" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">حساب کاربری
@@ -78,7 +81,6 @@
                         </a>
                     </li>
                 {% else %}
-
                     <li class="nav-item">
                         <a href="/login" class="nav-link">ورود</a>
                     </li>
@@ -86,15 +88,8 @@
                     <li class="nav-item">
                         <a href="/register" class="nav-link">ثبت نام</a>
                     </li>
-
                 {% endif %}
-                {% if request.user.is_superuser %}
-
-                    <li class="nav-item">
-                        <a href="/dashboard" class="nav-link">داشبورد</a>
-                    </li>
-
-                {% endif %}
+                
                 <li class="nav-item mt-3 mx-3">
                     <form action="/products/search">
                         <input type="text" placeholder="جستجو" name="q" value="{{ request.GET.q }}"
