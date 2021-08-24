@@ -56,7 +56,7 @@ def register_user(request):
 
 def log_out(request):
     logout(request)
-    return redirect('/')
+    return redirect(request.GET.get('path'))
 
 
 @login_required(login_url='/login')
