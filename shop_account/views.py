@@ -25,8 +25,8 @@ def login_user(request):
         user = authenticate(request, username=user_name, password=password)
         if user is not None:
             login(request, user)
-            if request.user.is_superuser:
-                return redirect('/dashboard')
+            if request.GET.get("next"):
+                return redirect(request.GET.get("next"))
             return redirect('/')
 
     context = {
