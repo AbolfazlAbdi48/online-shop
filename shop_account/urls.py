@@ -1,18 +1,16 @@
 from django.urls import path
-
-from .views import login_user, register_user, user_page, user_edit, user_address, user_add_address, user_edit_address, \
-    user_delete_address, user_paid_orders, user_paid_order_detail, log_out
+from . import views
 
 urlpatterns = [
-    path('login', login_user),
-    path('register', register_user),
-    path('log-out', log_out),
-    path('account', user_page),
-    path('account/edit', user_edit),
-    path('account/paid-order', user_paid_orders),
-    path('account/paid-order/<orderId>', user_paid_order_detail),
-    path('account/address', user_address),
-    path('account/address/add', user_add_address),
-    path('account/address/edit/<addressId>', user_edit_address),
-    path('account/address/delete/<addressId>', user_delete_address),
+    path('login', views.login_user, name="login"),
+    path('register', views.register_user, name="register"),
+    path('logout', views.log_out, name="logout"),
+    path('account', views.user_page, name="account"),
+    path('account/edit', views.user_edit, name="editProfile"),
+    path('account/paid-order',views. user_paid_orders, name="paidOrders"),
+    path('account/paid-order/<orderId>', views.user_paid_order_detail, name="paidOrderDetail"),
+    path('account/address', views.user_address, name="addresses"),
+    path('account/address/add', views.user_add_address, name="newAddress"),
+    path('account/address/edit/<addressId>', views.user_edit_address, name="editAddress"),
+    path('account/address/delete/<addressId>', views.user_delete_address, name="deleteAddress"),
 ]
